@@ -1,0 +1,33 @@
+*HEADING
+Page 70 example in ccx.2.6.1
+**PS:Input deck modified
+***
+*INCLUDE,INPUT=Nall.inp
+*INCLUDE,INPUT=Eall.inp
+*INCLUDE,INPUT=Nbou.inp
+*INCLUDE,INPUT=Nload.inp
+***
+*MATERIAL,NAME=Alum
+*ELASTIC
+1.0E5,0.3
+***
+*BEAM SECTION,MATERIAL=Alum,ELSET=Eall,SECTION=RECT
+2.0,2.0
+1.0,0.0,0.0
+***
+*BOUNDARY
+Nbou,1,6
+***
+*STEP
+*STATIC
+***
+*CLOAD
+Nload,1,1
+***
+*EL PRINT,ELSET=Eall
+S
+*NODE FILE
+U
+*EL FILE
+S
+*END STEP
